@@ -1,0 +1,123 @@
+
+
+
+/*
+ * ─── COLORS ─────────────────────────────────────────────────────────────────────
+ */
+
+    * {
+        --background:
+            white;
+        --foreground:
+            black;
+        box-sizing: border-box;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        * {
+            --background:
+                black;
+            --foreground:
+                white;
+        }
+    }
+
+/*
+ * ─── BODY ───────────────────────────────────────────────────────────────────────
+ */
+
+    body {
+        margin:             0;
+        padding:            0;
+        overflow:           hidden;
+        background-color:   var( --background );
+        color:              var( --foreground );
+        font-family:        Pacifica;
+    }
+
+/*
+ * ─── HEADERS ────────────────────────────────────────────────────────────────────
+ */
+
+    h1 {
+        font-size: 40pt;
+        font-weight: normal;
+        letter-spacing: 1pt;
+        border-bottom: 2pt red solid;
+        padding-bottom: 5pt;
+    }
+
+/*
+ * ─── CONTAINERS ─────────────────────────────────────────────────────────────────
+ */
+
+    #container {
+        display:    flex;
+        height:     100vh;
+    }
+
+    #chars-sidebar {
+        flex:           1;
+        box-sizing:     border-box;
+        display:        flex;
+        flex-wrap:      wrap;
+        max-height:     min-content;
+        padding-bottom: 100pt;
+        overflow-y:     scroll;
+    }
+
+    #info-container {
+        flex:           2;
+        padding-left:        20px;
+        box-sizing:     border-box;
+    }
+
+/*
+ * ─── LETTER BOX ─────────────────────────────────────────────────────────────────
+ */
+
+    .char-box {
+        display:        block;
+        border:         1pt solid #424242;
+        padding:        5pt;
+        height:         30pt;
+        width:          30pt;
+        text-align:     center;
+        margin:         10pt 0 0 10pt;
+        font-size:      16pt;
+        user-select:    none;
+        cursor:         pointer;
+    }
+
+/*
+ * ─── TEMPLATE ───────────────────────────────────────────────────────────────────
+ */
+
+    #template {
+        font-size: 30pt;
+        padding-right: 20pt;
+    }
+
+/*
+ * ─── COPY BUTTON ────────────────────────────────────────────────────────────────
+ */
+
+    #copy-button {
+        font-family: "Avenir";
+        border: 2pt red solid ;
+        padding: 3pt 10pt 3pt 10pt;
+        border-radius: 100pt;
+        max-width: fit-content;
+        margin-bottom: 20pt;
+    }
+
+    #copy-button:hover, #copy-button:active {
+        background-color: red;
+    }
+
+    #copy-element {
+        position: absolute;
+        top: 100vh;
+    }
+
+/* ──────────────────────────────────────────────────────────────────────────────── */
