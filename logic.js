@@ -60,8 +60,13 @@
         let text =
             ""
         for ( const letter of letters ) {
-            text += letter + char + letter + " "
+            text += letter + letter + char + letter + letter + " "
         }
+
+        for ( const template of specialTemplatesFor( char ) ) {
+            text += template + " "
+        }
+
         return text
     }
 
@@ -72,9 +77,29 @@
     function onCopy ( ) {
         const element =
             document.getElementById( "copy-element" )
+        element.hidden = false
         element.select()
         element.setSelectionRange( 0, 99999 )
-        document.execCommand( "copy" )
+
+        try {
+            document.execCommand( "copy" )
+            window.getSelection( ).empty( )
+            document.selection.empty( )
+        } catch ( e ) { }
+
+        element.hidden = true
+    }
+
+//
+// ─── OTHER TEMPLATES ────────────────────────────────────────────────────────────
+//
+
+    function specialTemplatesFor ( char ) {
+        return [
+            `${ char }(${ char },${ char })${ char }`,
+            `${ char }{${ char },${ char }}${ char }`,
+            `${ char }[${ char },${ char }]${ char }`,
+        ]
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
